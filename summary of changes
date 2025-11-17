@@ -1,0 +1,21 @@
+Summary of cleaning performed on Mall_Customers.csv
+
+Files produced:
+- cleaned_dataset.csv (cleaned output)
+- cleaning_script.py (standalone script to reproduce cleaning)
+- README.md (instructions)
+- summary_of_changes.txt (this file)
+
+Key actions performed:
+1. Renamed columns to lowercase with underscores for consistency.
+2. Removed exact duplicate rows (if any).
+3. Standardized 'gender' values to 'Male' / 'Female' and cleaned missing entries.
+4. Converted 'age', 'annual_income_(k$)', and 'spending_score_(1-100)' to numeric types.
+5. Filled missing numeric values with the column median and converted to integer.
+6. Reordered columns to: customerid, gender, age, annual_income_(k$), spending_score_(1-100).
+
+Notes / assumptions:
+- The dataset did not contain date columns; no date parsing was required.
+- Median imputation was chosen as a simple robust strategy for any missing numeric values.
+- Any non-standard gender entries were normalized to 'Male' or 'Female'; ambiguous entries become missing (NA).
+- The cleaning script is deterministic and reproducible; run `python3 cleaning_script.py` in the directory with Mall_Customers.csv.
